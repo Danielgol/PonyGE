@@ -1,0 +1,5 @@
+<architecture> ::= <layer> <architecture> | <layer>
+<layer> ::= <type><k>
+<type> ::= max_pool <n> | relu | conv2d | fc_layer
+<k> ::= 1 | 2 | 3 | 4
+<n> ::= 2 | 3 | 4
