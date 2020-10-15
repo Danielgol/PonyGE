@@ -1,12 +1,11 @@
 from algorithm.parameters import params
 from fitness.base_ff_classes.base_ff import base_ff
+from utilities.fitness.error_metric import f1_score
 
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 from tensorflow.keras.datasets import cifar10
-
-from random import randrange
 
 #https://www.machinecurve.com/index.php/2020/02/09/how-
 #to-build-a-convnet-for-cifar-10-and-cifar-100-classification-with-keras/
@@ -44,7 +43,8 @@ def build_model(phenotype, num_classes, input_shape):
     return model
 
 class conv(base_ff):
-
+    
+    maximise = True
     def __init__(self):
         super().__init__()
         (x_train, y_train), (x_test, y_test) = cifar10.load_data()
@@ -57,7 +57,6 @@ class conv(base_ff):
     
     def evaluate(self, ind, **kwargs):
 
-        #accuracy = randrange(1000)/1000
         model = build_model(ind.phenotype, 10, (32,32,3))
         model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
         results = model.fit(self.x_train, self.y_train, batch_size=64, epochs=10, validation_split=0.1, verbose=1)

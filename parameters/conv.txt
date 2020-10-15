@@ -3,7 +3,7 @@ CODON_SIZE:             100000
 CROSSOVER:              variable_onepoint
 CROSSOVER_PROBABILITY:  0.75
 DEBUG:                  False
-ERROR_METRIC:           f1_score
+ERROR_METRIC:           None
 GENERATIONS:            5
 MAX_GENOME_LENGTH:      500
 GRAMMAR_FILE:           conv.bnf
@@ -17,4 +17,4 @@ FITNESS_FUNCTION:       conv
 REPLACEMENT:            generational
 SELECTION:              tournament
 TOURNAMENT_SIZE:        2
-VERBOSE: 				False
+VERBOSE: 				True
