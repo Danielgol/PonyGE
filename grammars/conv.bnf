@@ -3,6 +3,5 @@
 <architecture> ::= <layer> <layer> <layer> <layer>
 					| <layer> <layer> <layer>
 					| <layer> <layer>
-<layer> ::= <type>
-<type> ::= max_pool | conv2D <output_filters>
+<layer> ::= conv2D <output_filters> | max_pool
 <output_filters> ::= 32 | 64 | 128

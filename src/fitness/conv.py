@@ -49,7 +49,7 @@ class conv(base_ff):
 
     def __init__(self):
         super().__init__()
-
+        print("HOUSTON")
         (x_train, y_train), (x_test, y_test) = cifar10.load_data()
         x_train = tf.keras.utils.normalize(x_train, axis=1)
         x_test = tf.keras.utils.normalize(x_test, axis=1)
@@ -63,7 +63,7 @@ class conv(base_ff):
         #accuracy = randrange(1000)/1000
         model = build_model(ind.phenotype, 10, (32,32,3))
         model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
-        results = model.fit(self.x_train,self.y_train, batch_size=64, epochs=2, validation_split=0.1, verbose=1)
-        score = model.evaluate(self.x_test, self.y_test, verbose=0)
+        results = model.fit(self.x_train, self.y_train, batch_size=64, epochs=2, validation_split=0.1, verbose=1)
+        score = model.evaluate(self.x_test, self.y_test, verbose=1)
         accuracy = score[1]
         return accuracy
