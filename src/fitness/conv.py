@@ -23,8 +23,6 @@ def build_model(phenotype, num_classes, input_shape):
     phenotype = phenotype.split()
     first = True
 
-    print(phenotype)
-
     for i in range(len(phenotype)):
         if phenotype[i] == "conv2D" and first:
             first = False
@@ -65,5 +63,6 @@ class conv(base_ff):
         results = model.fit(self.x_train, self.y_train, batch_size=64, epochs=10, validation_split=0.1, verbose=1)
         score = model.evaluate(self.x_test, self.y_test, verbose=1)
         accuracy = score[1]
+        print(ind.phenotype)
         print("ACCURACY: ",accuracy)
         return accuracy
