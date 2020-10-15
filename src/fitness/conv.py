@@ -8,6 +8,11 @@ from tensorflow.keras.datasets import cifar10
 
 from random import randrange
 
+#https://www.machinecurve.com/index.php/2020/02/09/how-
+#to-build-a-convnet-for-cifar-10-and-cifar-100-classification-with-keras/
+
+#https://datascience.stackexchange.com/questions/46819/in-cifar-10-dataset
+
 # cd C:\Users\danro\Documents\Meus Projetos\Workspace\PonyGE2\src
 # python ponyge.py --parameters conv.txt
 
@@ -58,30 +63,7 @@ class conv(base_ff):
         #accuracy = randrange(1000)/1000
         model = build_model(ind.phenotype, 10, (32,32,3))
         model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
-        results = model.fit(self.x_train,self.y_train, batch_size=64, epochs=2, validation_split=0.1, verbose=0)
+        results = model.fit(self.x_train,self.y_train, batch_size=64, epochs=2, validation_split=0.1, verbose=1)
         score = model.evaluate(self.x_test, self.y_test, verbose=0)
         accuracy = score[1]
         return accuracy
-
-
-        """
-        #print("HOUSTON "+ind.phenotype+"   ",rmd)
-
-    	# olhar exemplo sequence_match
-    	# pelo que aparenta, o ponyge gera uma sequencia de "palavras" pela gramática,
-    	# depois nós pegamos essa sequencia e aplicamos como quisermos.
-
-    	total = 0
-        matches = 0
-        with torch.no_grad():
-	        for batch in train_data:
-	        	X, y = batch
-	        	output = net(X.view(-1,28*28))
-	        	for idx, i in enumerate(output):
-			      if torch.argmax(i) == y[idx]:
-			        matches += 1
-			      total += 1
-
-		accuracy = matches/total
-		"""
-		
