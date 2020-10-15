@@ -1,5 +1,8 @@
-<architecture> ::= <layer> <architecture> | <layer>
-<layer> ::= <type><k>
-<type> ::= max_pool <n> | relu | conv2d | fc_layer
-<k> ::= 1 | 2 | 3 | 4
-<n> ::= 2 | 3 | 4
+# Limitação da quantidade de camadas por conta do tamanhos das imagens do dataset
+# (imagens pequenas sofrem redução ao longo das camadas)
+<architecture> ::= <layer> <layer> <layer> <layer>
+					| <layer> <layer> <layer>
+					| <layer> <layer>
+<layer> ::= <type>
+<type> ::= max_pool | conv2D <output_filters>
+<output_filters> ::= 32 | 64 | 128
