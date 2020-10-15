@@ -58,7 +58,7 @@ class conv(base_ff):
     def evaluate(self, ind, **kwargs):
         model = build_model(ind.phenotype, 10, (32,32,3))
         model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
-        results = model.fit(self.x_train, self.y_train, batch_size=64, epochs=5, validation_split=0.1, verbose=1)
+        results = model.fit(self.x_train, self.y_train, batch_size=64, epochs=10, validation_split=0.1, verbose=1)
         score = model.evaluate(self.x_test, self.y_test, verbose=1)
         accuracy = score[1]
         print(ind.phenotype)
