@@ -12,7 +12,7 @@ class string_match_daniel(base_ff):
         self.num_obj = 1
         fit = base_ff()
         fit.maximise = True
-        self.fitness_functions = [fit, fit]
+        self.fitness_functions = [fit]
         self.default_fitness = [float('nan')]
 
     def evaluate(self, ind, **kwargs):
