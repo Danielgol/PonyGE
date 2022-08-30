@@ -25,7 +25,7 @@ class string_match_daniel(base_ff):
 
         fitness = SequenceMatcher(None, guess, target).ratio()
 
-        print("Fitness: "+fitness)
+        print("Fitness: "+str(fitness))
 
         return fitness
 
