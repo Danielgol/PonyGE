@@ -9,11 +9,11 @@ class string_match_daniel(base_ff):
     def __init__(self):
         super().__init__()
         #self.target = params['TARGET']
-        self.num_obj = 2
+        self.num_obj = 1
         fit = base_ff()
         fit.maximise = True
         self.fitness_functions = [fit, fit]
-        self.default_fitness = [float('nan'), float('nan')]
+        self.default_fitness = [float('nan')]
 
     def evaluate(self, ind, **kwargs):
 
@@ -29,7 +29,7 @@ class string_match_daniel(base_ff):
 
         return fitness
 
-    '''
+    
     @staticmethod
     def value(fitness_vector, objective_index):
         """
@@ -46,4 +46,3 @@ class string_match_daniel(base_ff):
             return float("inf")
 
         return fitness_vector[objective_index]
-    '''
