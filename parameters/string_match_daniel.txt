@@ -1,4 +1,4 @@
-GRAMMAR_FILE:           letter.pybnf
+GRAMMAR_FILE:           letter.bnf
 FITNESS_FUNCTION:       string_match_daniel
 INITIALISATION:         uniform_genome
 GENERATIONS:            30
